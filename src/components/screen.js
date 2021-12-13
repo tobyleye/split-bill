@@ -27,12 +27,12 @@ export function Screen({ totalPrice, totalPersons, tipPercent, tipAmount }) {
 //  screen background
 const ScreenBG = ({ children }) => {
   return (
-    <div class="screen">
-      <div class="screen-bg">
+    <div className="screen">
+      <div className="screen-bg">
         <div className="screen-bg-shape screen-bg-shape-1" />
         <div className="screen-bg-shape screen-bg-shape-2" />
       </div>
-      <div class="screen-content">{children}</div>
+      <div className="screen-content">{children}</div>
     </div>
   );
 };

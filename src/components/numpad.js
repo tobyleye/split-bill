@@ -66,7 +66,6 @@ export function NumPad({ value, onChange }) {
         className="clear"
         data-value="clear"
         onClick={clear}
-        disabled={value === ""}
       >
         <IoBackspaceOutline />
         <span aria-hidden>clear</span>

@@ -2,22 +2,28 @@ import "./styles.css";
 import { useState } from "react";
 import { NumPad } from "./components/numpad";
 import { PersonSlider } from "./components/slider";
-import { Result } from "./result";
+import { Result } from "./components/result";
 import { Screen } from "./components/screen";
 import { TipSelect } from "./components/tips";
 import { SplitButton } from "./components/split-button";
 import { toFixed } from "./utils";
 
+let values = {
+  totalPrice:'',
+  totalPersons: 5,
+  tipPercent: 0,
+}
+
 export default function App() {
-  let [totalPrice, setTotalPrice] = useState("");
-  let [totalPersons, setTotalPersons] = useState(2);
-  let [tipPercent, setTipPercent] = useState(0);
+  let [totalPrice, setTotalPrice] = useState(values.totalPrice);
+  let [totalPersons, setTotalPersons] = useState(values.totalPersons);
+  let [tipPercent, setTipPercent] = useState(values.tipPercent);
   let [showResult, setShowResult] = useState(false);
 
   let reset = () => {
-    setTotalPersons(2);
+    setTotalPersons(values.totalPersons);
+    setTipPercent(values.tipPercent);
     setTotalPrice(200);
-    setTipPercent(0);
     setShowResult(false);
   };
 
@@ -44,7 +50,7 @@ export default function App() {
           totalPersons={totalPersons}
         />
       ) : (
-        <div>
+        <div className="controls">
           <div className="slider">
             <PersonSlider onChange={setTotalPersons} value={totalPersons} />
           </div>

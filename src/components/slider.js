@@ -16,7 +16,7 @@ export function PersonSlider({ value, onChange }) {
     >
       <SliderInput
         style={{
-          height: 35
+          height: 38
         }}
         onChange={onChange}
         value={value}
@@ -51,6 +51,7 @@ export function PersonSlider({ value, onChange }) {
               top: 0,
               bottom: 0,
               width: "100%",
+              display: 'flex',
               alignItems: "center",
               justifyContent: "space-between",
               padding: "0 20px",

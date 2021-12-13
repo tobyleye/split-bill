@@ -1,3 +1,5 @@
+import { FaPencilAlt } from "react-icons/fa"
+
 export function SplitButton({ showResult, onReset, onSplit, ...props }) {
   return (
     <div className="split-btn-wrap">
@@ -6,7 +8,9 @@ export function SplitButton({ showResult, onReset, onSplit, ...props }) {
         {...props}
         onClick={showResult ? onReset : onSplit}
       >
-        {showResult ? <span>edit</span> : <span>SPLIT BILL</span>}
+        {showResult ? <span className="edit-icon">
+          <FaPencilAlt />
+        </span> : <span>SPLIT BILL</span>}
       </button>
     </div>
   );

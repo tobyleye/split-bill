@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { toFixed } from "./utils";
+import { toFixed } from "../utils";
 
 export function Result({ totalPrice, tipAmount, totalPersons }) {
   let [list, setList] = useState(() => {
@@ -10,16 +10,20 @@ export function Result({ totalPrice, tipAmount, totalPersons }) {
         return {
           id: index,
           isLocked: false,
-          amount: amountPerPerson
+          amount: amountPerPerson,
         };
       });
   });
 
   return (
-    <div className="result-list">
-      {list.map((i, index) => (
-        <ResultItem key={i.id} index={index} obj={i} />
-      ))}
+    <div className="result">
+      <div className="result-list-container">
+        <div className="result-list">
+          {list.map((i, index) => (
+            <ResultItem key={i.id} index={index} obj={i} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
