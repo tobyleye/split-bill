@@ -8,22 +8,24 @@ import { TipSelect } from "./components/tips";
 import { SplitButton } from "./components/split-button";
 import { toFixed } from "./utils";
 
-let values = {
-  totalPrice:'',
+let defaults = {
+  totalPrice: "",
   totalPersons: 5,
   tipPercent: 0,
-}
+  currency: "₦",
+};
 
 export default function App() {
-  let [totalPrice, setTotalPrice] = useState(values.totalPrice);
-  let [totalPersons, setTotalPersons] = useState(values.totalPersons);
-  let [tipPercent, setTipPercent] = useState(values.tipPercent);
+  let [totalPrice, setTotalPrice] = useState(defaults.totalPrice);
+  let [totalPersons, setTotalPersons] = useState(defaults.totalPersons);
+  let [tipPercent, setTipPercent] = useState(defaults.tipPercent);
+  let [currency, setCurrency] = useState(defaults.currency);
   let [showResult, setShowResult] = useState(false);
 
   let reset = () => {
-    setTotalPersons(values.totalPersons);
-    setTipPercent(values.tipPercent);
-    setTotalPrice(200);
+    setTotalPersons(defaults.totalPersons);
+    setTipPercent(defaults.tipPercent);
+    setTotalPrice(defaults.totalPrice);
     setShowResult(false);
   };
 
@@ -35,12 +37,26 @@ export default function App() {
 
   return (
     <div className="App">
-      <h3 className="title">Split bill</h3>
+      <header className="header">
+        <h3 className="title">Split bill</h3>
+        <select
+          onChange={currency}
+          onChange={(e) => setCurrency(e.target.value)}
+        >
+          <option>₦</option>
+          <option>$</option>
+          <option>€</option>
+          <option>£</option>
+          <option value="">Can't find my currency</option>
+        </select>
+      </header>
+      
       <Screen
         tipPercent={tipPercent}
         tipAmount={tipAmount}
         totalPrice={totalPrice}
         totalPersons={totalPersons}
+        currency={currency}
       />
 
       {showResult ? (
@@ -48,6 +64,7 @@ export default function App() {
           totalPrice={totalPrice}
           tipAmount={tipAmount}
           totalPersons={totalPersons}
+          currency={currency}
         />
       ) : (
         <div className="controls">

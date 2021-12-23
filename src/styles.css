@@ -28,17 +28,16 @@ html,body, #root, .App {
   padding-left: 10px;
 }
 
-.box {
-  background: blue;
-  width: 50px;
-  height: 50px;
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 1.5rem 0;
 }
 
 .title {
   font-size: 24px;
   text-transform: capitalize;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
 }
 
 .screen {
@@ -115,7 +114,12 @@ html,body, #root, .App {
 
 .tips {
   display: flex;
-  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.tips > div {
+  margin-right: 8px;
+  flex-shrink:none;
 }
 
 .tips-radio-input {
@@ -240,10 +244,10 @@ html,body, #root, .App {
 }
 
 .result-item {
+  position: relative;
   display: grid;
   place-items: center;
   text-align: center;
-  padding: 2.5rem 0;
 }
 
 .result-item:not(:last-child) {
@@ -259,6 +263,38 @@ html,body, #root, .App {
   font-size: .65rem;
   margin-bottom: 4px;
   text-transform: uppercase;
+}
+
+.result-item-handle {
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  width: 2.2em;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid #333;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  right: 40px;
+  z-index: 4;
+  transform: translateY(50%);
+  touch-action:pan-x;
+}
+
+.result-item-handle.locked {
+  background: var(--color-green);
+  border: var(--color-green);
+  color: #fff;
+
+}
+
+.result-item-handle > span {
+  display: inline-flex;
+  flex-direction: column;
 }
 
 .split-btn-wrap {
@@ -302,4 +338,28 @@ html,body, #root, .App {
   display:inline-block;
   font-size: 20px;
   margin-top: 10px;
+}
+
+.box {
+  width: 150px;
+  height: 80px;
+  border: 1px solid #ccc;
+  margin: 2rem;
+  position: relative;
+  /* transition: all .15s ease; */
+}
+
+.box-handle {
+  width: 28px;
+  height: 28px;
+  display: inline-grid;
+  place-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 100%;
+  background: white;
+  transform: translateY(50%);
+  
 }

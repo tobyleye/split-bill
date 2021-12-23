@@ -1,15 +1,15 @@
-export function Screen({ totalPrice, totalPersons, tipPercent, tipAmount }) {
+export function Screen({ totalPrice, totalPersons, tipPercent, tipAmount, currency }) {
   return (
     <ScreenBG>
       <div className="total-price">
         <p>Total</p>
-        <p>${totalPrice}</p>
+        <p>{currency}{totalPrice}</p>
       </div>
 
       <div className="info">
         <div>
           <span>Bill</span>
-          <span>${totalPrice}</span>
+          <span>{currency}{totalPrice}</span>
         </div>
         <div>
           <span>Friends</span>
@@ -17,7 +17,7 @@ export function Screen({ totalPrice, totalPersons, tipPercent, tipAmount }) {
         </div>
         <div>
           <span>Tip({tipPercent}%)</span>
-          <span>${tipAmount}</span>
+          <span>{currency}{tipAmount}</span>
         </div>
       </div>
     </ScreenBG>
