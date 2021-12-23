@@ -39,7 +39,7 @@ export function Result({ totalPrice, tipAmount, totalPersons, currency }) {
     if (unlockedBoxes.length === 0) return;
 
     // share the change equally among the remaining boxes
-    // Todo randomly share the remaining price among each persons
+    // Todo: randomly share the remaining price among each persons
     let share = change / unlockedBoxes.length;
 
     setList((list) =>
@@ -51,14 +51,14 @@ export function Result({ totalPrice, tipAmount, totalPersons, currency }) {
           };
         }
 
-        // ignore locked users
         if (!item.isLocked) {
           return {
             ...item,
             ratio: item.ratio - share,
           };
         }
-
+        
+        // do nothing
         return item;
       })
     );
@@ -125,13 +125,9 @@ let ResultItem = ({
     if (tap) {
       return toggleLock(id);
     }
-
     if (isLocked) {
       return;
     }
-
-    console.log({ tap, my });
-
     let newHeight = normalizeHeight(baseHeight.current + my);
     let newRatio = (newHeight / boxBaseHeight) * 1;
 
