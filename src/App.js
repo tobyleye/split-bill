@@ -47,7 +47,7 @@ export default function App() {
           <option>$</option>
           <option>€</option>
           <option>£</option>
-          <option value="">Can't find my currency</option>
+          <option value=""></option>
         </select>
       </header>
 
