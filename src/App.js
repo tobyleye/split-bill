@@ -10,7 +10,7 @@ import { toFixed } from "./utils";
 
 let defaults = {
   totalPrice: "",
-  totalPersons: 5,
+  totalPersons: 3,
   tipPercent: 0,
   currency: "₦",
 };
