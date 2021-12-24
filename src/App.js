@@ -33,7 +33,7 @@ export default function App() {
     setShowResult(true);
   };
 
-  let tipAmount = totalPrice ? toFixed(totalPrice * (tipPercent / 100), 2) : 0;
+  let tipAmount = totalPrice ? toFixed(+totalPrice * (tipPercent / 100), 2) : 0;
 
   return (
     <div className="App">
@@ -50,7 +50,7 @@ export default function App() {
           <option value="">Can't find my currency</option>
         </select>
       </header>
-      
+
       <Screen
         tipPercent={tipPercent}
         tipAmount={tipAmount}
@@ -61,7 +61,7 @@ export default function App() {
 
       {showResult ? (
         <Result
-          totalPrice={totalPrice}
+          totalPrice={+totalPrice}
           tipAmount={tipAmount}
           totalPersons={totalPersons}
           currency={currency}

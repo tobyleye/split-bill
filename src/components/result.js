@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { toFixed } from "../utils";
+import { toFixed,formatMoney} from "../utils";
 import { BsThreeDots } from "react-icons/bs";
 import { FaLock } from "react-icons/fa";
 import { useDrag } from "@use-gesture/react";
@@ -57,7 +57,7 @@ export function Result({ totalPrice, tipAmount, totalPersons, currency }) {
             ratio: item.ratio - share,
           };
         }
-        
+
         // do nothing
         return item;
       })
@@ -149,7 +149,8 @@ let ResultItem = ({
       <div>
         <p className="result-item-person">Person {alphabets[index]}</p>
         <p className="result-item-price">
-          {currency}{calculateShare(totalAmount, totalPersons, ratio)}
+          {currency}
+          {formatMoney(calculateShare(totalAmount, totalPersons, ratio))}
         </p>
       </div>
       <div

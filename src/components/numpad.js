@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 import { IoBackspaceOutline } from "react-icons/io5";
+import { useState } from "react/cjs/react.development";
 
-let twoDecimalRegex = /^\d+(\.\d{1,2}?)?$/;
+let twoDecimalRegex = /^\d+(\.\d{0,2})?$/;
 
 export function NumPad({ value, onChange }) {
   let containerRef = useRef(null);
@@ -39,7 +40,7 @@ export function NumPad({ value, onChange }) {
   let handleClick = (e) => {
     let newValue = String(value) + e.target.textContent;
     if (twoDecimalRegex.test(newValue)) {
-      onChange(newValue !== "" ? Number(newValue) : newValue);
+      onChange(newValue);
     }
   };
 

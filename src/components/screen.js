@@ -1,15 +1,17 @@
+import { formatMoney } from "../utils";
+
 export function Screen({ totalPrice, totalPersons, tipPercent, tipAmount, currency }) {
   return (
     <ScreenBG>
       <div className="total-price">
         <p>Total</p>
-        <p>{currency}{totalPrice}</p>
+        <p>{currency}{formatMoney(totalPrice)}</p>
       </div>
 
       <div className="info">
         <div>
           <span>Bill</span>
-          <span>{currency}{totalPrice}</span>
+          <span>{currency}{formatMoney(totalPrice)}</span>
         </div>
         <div>
           <span>Friends</span>
@@ -17,7 +19,7 @@ export function Screen({ totalPrice, totalPersons, tipPercent, tipAmount, curren
         </div>
         <div>
           <span>Tip({tipPercent}%)</span>
-          <span>{currency}{tipAmount}</span>
+          <span>{currency}{formatMoney(tipAmount)}</span>
         </div>
       </div>
     </ScreenBG>
