@@ -92,9 +92,7 @@ let boxBaseHeight = 160;
 let maxBoxHeight = boxBaseHeight * 1.2; // 120% of base box height
 let minBoxHeight = boxBaseHeight * 0.8; // 80% of base box height
 
-let calculateShare = (totalAmount, totalPersons, ratio) => {
-  return toFixed((ratio / totalPersons) * totalAmount, 2);
-};
+let calculateShare = (totalAmount, totalPersons, ratio) =>  Math.round((ratio / totalPersons) * totalAmount)
 
 let ResultItem = ({
   index,
