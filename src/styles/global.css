@@ -83,10 +83,12 @@ body,
 
 .screen-shape-1 {
   right: 120px;
+  bottom: 0px;
 }
 
 .screen-shape-2 {
   right: 0;
+  bottom: 0px;
 }
 
 .screen-content {
@@ -224,6 +226,7 @@ body,
   display: grid;
   place-items: center;
   text-align: center;
+  transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .result-item:not(:last-child) {
