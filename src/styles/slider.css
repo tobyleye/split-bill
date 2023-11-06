@@ -1,0 +1,46 @@
+.custom-slider {
+  margin: 20px 0px;
+}
+
+.custom-slider .slider-input {
+  height: 38px;
+}
+
+.custom-slider .slider-track {
+  height: 38px;
+  border-radius: 0;
+  background: #f1f1f1;
+}
+
+.custom-slider .slider-range {
+  background: var(--color-green);
+}
+
+.custom-slider .slider-handle {
+  height: 48px;
+  width: 8px;
+  border-radius: 0;
+  background: var(--color-green-deep);
+}
+
+.custom-slider .slider-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.slider-body .icon {
+  font-size: 20px;
+  color: white;
+}
+
+.slider-body .value {
+  font-size: 20px;
+}

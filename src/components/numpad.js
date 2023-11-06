@@ -1,6 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { IoBackspaceOutline } from "react-icons/io5";
-import { useState } from "react/cjs/react.development";
 
 let twoDecimalRegex = /^\d+(\.\d{0,2})?$/;
 
@@ -63,11 +62,7 @@ export function NumPad({ value, onChange }) {
         0
       </button>
       <button onClick={handleClick}>.</button>
-      <button
-        className="clear"
-        data-value="clear"
-        onClick={clear}
-      >
+      <button className="clear" data-value="clear" onClick={clear}>
         <IoBackspaceOutline />
         <span aria-hidden>clear</span>
       </button>

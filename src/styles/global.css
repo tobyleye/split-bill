@@ -8,32 +8,36 @@
   display: none;
 }
 
-html,body, #root, .App {
+html,
+body,
+#root,
+.App {
   width: 100%;
   height: 100%;
 }
 
-.App {
+:root {
   --color-green: #00ba40;
   --color-green-deep: #0db244;
   --color-black: #101a25;
 }
 
 .App {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 1rem;
-  display: grid;
-  grid-template-rows: auto 22% 1fr auto;
+  display: flex;
+  flex-direction: column;
   padding-right: 10px;
   padding-left: 10px;
   max-width: 640px;
   margin: auto;
+  overflow: auto;
 }
 
-.header{
+.header {
   display: flex;
   justify-content: space-between;
-  align-items:center;
+  align-items: center;
   padding: 1.5rem 0;
 }
 
@@ -42,7 +46,6 @@ html,body, #root, .App {
   text-transform: capitalize;
 }
 
-
 .header select {
   border: none;
   font-size: 24px;
@@ -50,26 +53,25 @@ html,body, #root, .App {
   display: inline-block;
 }
 
-
 .screen {
-  padding: 30px 16px;
+  padding: 20px 16px;
   position: relative;
-  overflow: hidden;
   border-radius: 5px;
   color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,.12);
-}
-
-.screen-bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
   background: var(--color-green);
 }
 
-.screen-bg-shape {
+.screen-shapes {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.screen-shape {
   position: absolute;
   bottom: -10px;
   width: 300px;
@@ -79,60 +81,63 @@ html,body, #root, .App {
   transform: rotate(45deg);
 }
 
-.screen-bg-shape-1 {
+.screen-shape-1 {
   right: 120px;
 }
 
-.screen-bg-shape-2 {
+.screen-shape-2 {
   right: 0;
 }
 
 .screen-content {
-  height: 100%;
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: block;
 }
 
-.screen .total-price p:first-child {
+.screen .bill-input-label {
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 4px;
 }
 
-.screen .total-price p:last-child {
+.screen .bill-input-value {
   font-size: 45px;
 }
 
-.screen .info {
+.screen-info {
+  margin-top: 14px;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  justify-content: flex-end;
 }
 
-.screen .info > div {
+.screen-info-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
+  gap: 5px;
+}
+
+.screen-info-list > div {
+  display: grid;
+  grid-template-columns: 80px auto;
+  grid-gap: 10px;
   font-size: 14px;
   text-transform: uppercase;
 }
 
-.screen .info > div span:last-child {
+.screen-info-list > div span:last-child {
   text-align: left;
-  display: block;
+  font-weight: 600;
 }
 
 .tips {
   display: flex;
+  margin-bottom: 15px;
   flex-wrap: nowrap;
 }
 
 .tips > div {
   margin-right: 8px;
-  flex-shrink:none;
+  flex-shrink: none;
 }
 
 .tips-radio-input {
@@ -165,7 +170,7 @@ html,body, #root, .App {
 
 .tips-radio-input .check-icon {
   position: absolute;
-  display: none; /* inline-grid */
+  display: none;
   place-items: center;
   top: 0;
   right: 0;
@@ -185,30 +190,6 @@ html,body, #root, .App {
   display: inline-grid;
 }
 
-.numpad {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows:repeat(4, 1fr);
-}
-
-.numpad button {
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  outline: none;
-  font-size: 1.5rem;
-  color: #2b374b;
-}
-
-.numpad button:hover {
-  background: #f1f1f1;
-}
-
-.numpad button.clear {
-  color: red;
-  font-size: 20px;
-}
-
 @keyframes slide-down {
   0% {
     transform: translateY(-100%);
@@ -218,27 +199,9 @@ html,body, #root, .App {
   }
 }
 
-
-.controls {
-  display: flex;
-  flex-direction: column; 
-  margin-top: 14px;
-}
-
-.controls .slider {
-  margin-bottom: 12px;
-}
-
-.controls .numpad {
-  flex: 1;
-}
-
-.controls .tips {
-  margin-bottom: 20px;
-}
-
 .result {
-  overflow:hidden;
+  min-height: 200px;
+  overflow: hidden;
 }
 
 .result-list-container {
@@ -273,15 +236,15 @@ html,body, #root, .App {
 }
 
 .result-item-person {
-  font-size: .65rem;
+  font-size: 0.65rem;
   margin-bottom: 4px;
   text-transform: uppercase;
 }
 
 .result-item-handle {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
   justify-content: center;
   cursor: pointer;
   user-select: none;
@@ -295,14 +258,13 @@ html,body, #root, .App {
   right: 40px;
   z-index: 4;
   transform: translateY(50%);
-  touch-action:pan-x;
+  touch-action: pan-x;
 }
 
 .result-item-handle.locked {
   background: var(--color-green);
   border: var(--color-green);
   color: #fff;
-
 }
 
 .result-item-handle > span {
@@ -348,7 +310,7 @@ html,body, #root, .App {
 }
 
 .split-btn .edit-icon {
-  display:inline-block;
+  display: inline-block;
   font-size: 20px;
   margin-top: 10px;
 }
@@ -374,5 +336,4 @@ html,body, #root, .App {
   border-radius: 100%;
   background: white;
   transform: translateY(50%);
-  
 }

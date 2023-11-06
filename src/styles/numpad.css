@@ -1,0 +1,26 @@
+.numpad {
+  flex: 1;
+  min-height: 200px;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.numpad button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 1.5rem;
+  color: #2b374b;
+}
+
+.numpad button:hover {
+  background: #f1f1f1;
+}
+
+.numpad button.clear {
+  color: red;
+  font-size: 20px;
+}

@@ -1,4 +1,3 @@
-import "./styles.css";
 import { useState } from "react";
 import { NumPad } from "./components/numpad";
 import { PersonSlider } from "./components/slider";
@@ -7,6 +6,7 @@ import { Screen } from "./components/screen";
 import { TipSelect } from "./components/tips";
 import { SplitButton } from "./components/split-button";
 import { toFixed } from "./utils";
+import "./styles/index.css";
 
 let defaults = {
   totalPrice: "",
@@ -39,10 +39,7 @@ export default function App() {
     <div className="App">
       <header className="header">
         <h3 className="title">Split bill</h3>
-        <select
-          onChange={currency}
-          onChange={(e) => setCurrency(e.target.value)}
-        >
+        <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
           <option>₦</option>
           <option>$</option>
           <option>€</option>
@@ -67,13 +64,11 @@ export default function App() {
           currency={currency}
         />
       ) : (
-        <div className="controls">
-          <div className="slider">
-            <PersonSlider onChange={setTotalPersons} value={totalPersons} />
-          </div>
+        <>
+          <PersonSlider onChange={setTotalPersons} value={totalPersons} />
           <TipSelect value={tipPercent} onChange={setTipPercent} />
           <NumPad value={totalPrice} onChange={setTotalPrice} />
-        </div>
+        </>
       )}
       <SplitButton
         showResult={showResult}
